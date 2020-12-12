@@ -15,7 +15,7 @@ class CreatePackGenresTable extends Migration
     {
         Schema::create('pack_genres', function (Blueprint $table) {
             $table->unsignedBigInteger('film_id');
-            $table->foreign('film_id')->references('id')->on('films');
+            $table->foreign('film_id')->references('id')->on('films')->onDelete("cascade");;
             $table->unsignedBigInteger('genre_id');
             $table->foreign('genre_id')->references('id')->on('genres');
             $table->timestamps();
